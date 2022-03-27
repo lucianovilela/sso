@@ -1,14 +1,15 @@
 const express = require("express");
 const msal = require('@azure/msal-node');
 
+require("dotenv").config();
 const app = express();
 // Before running the sample, you will need to replace the values in the config,
 // including the clientSecret
 const config = {
     auth: {
-        clientId: "Enter_the_Application_Id",
-        authority: "Enter_the_Cloud_Instance_Id_Here/Enter_the_Tenant_Id_here",
-        clientSecret: "Enter_the_Client_secret"
+        clientId: process.env.clientId,
+        authority: process.env.authority,
+        clientSecret: process.env.clientSecret
     },
     system: {
         loggerOptions: {
